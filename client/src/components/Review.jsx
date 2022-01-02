@@ -13,7 +13,7 @@ const getStar = (rating) => {
         starType = HALF_STAR;
 
     return (
-        <span>
+        <span key={rating}>
             <i className={"product--star " + starType}/>
         </span>
     )
@@ -31,13 +31,11 @@ const getStars = (rating) => {
     return starsHTML;
 }
 
-const Review = ({ rating, text }) => {
-    return (
-        <div>
-            {getStars(rating)}
-            {text && text}
-        </div>
-    )
-}
+const Review = ({ rating, text }) => (
+    <div>
+        {getStars(rating)}
+        {text && text}
+    </div>
+)
 
 export default Review;

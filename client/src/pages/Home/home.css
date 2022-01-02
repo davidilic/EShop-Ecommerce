@@ -5,3 +5,7 @@
 .product--price {
     padding: 1rem 0;
 }
+
+.home--title {
+    text-decoration: none;
+}
