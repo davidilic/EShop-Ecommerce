@@ -6,7 +6,7 @@ const Footer = () => (
         <Container>
             <Row>
                 <Col>
-                    Copyright © EShop 2021
+                    Copyright © EShop 2022
                 </Col>
             </Row>
         </Container>

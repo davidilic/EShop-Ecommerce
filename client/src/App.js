@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { Container } from 'react-bootstrap';
 import Home from "./pages/Home/Home";
-import ProductPage from "./pages/ProductPage/ProductPage";
+import ProductPage from "./pages/Product/ProductPage";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 function App() {
