@@ -1,14 +1,22 @@
-import React from 'react';
-import products from "../../products";
+import React, {useEffect, useState} from 'react';
 import {Row, Col, ListGroup, Image, Button, Card} from "react-bootstrap";
 import {Link, useParams} from "react-router-dom";
 import Review from "../../components/Review";
 import './productpage.css'
+import axios from "axios";
 
 const ProductPage = () => {
     const selectedId = useParams().id;
-    const selectedProduct = products.find((product) => product._id === selectedId)
-    console.log(selectedProduct.rating)
+    const [selectedProduct, setSelectedProduct] = useState({});
+
+    useEffect( () => {
+        const fetchProduct = async () => {
+            const {data} = await axios.get("/api/products/" + selectedId)
+            setSelectedProduct(data)
+        }
+        fetchProduct()
+    }, [])
+
     return (
         <div>
             <Link to={'/'} className={'btn btn-light my-3'}>Go Back</Link>
@@ -34,7 +42,7 @@ const ProductPage = () => {
                         </ListGroup.Item>
 
                         <ListGroup.Item>
-                            Price: ${selectedProduct.description}
+                            {selectedProduct.description}
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>

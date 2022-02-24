@@ -20,6 +20,11 @@ const getStar = (rating) => {
 }
 
 const getStars = (rating) => {
+    if (rating === undefined){
+        return
+    }
+
+
     const STAR_COUNT = 5;
 
     let starsHTML = [];

@@ -1,10 +1,21 @@
-import React from 'react';
-import products from "../../products";
+import React, {useEffect, useState} from 'react';
 import ProductCard from "../../components/ProductCard"
 import {Col, Row} from "react-bootstrap";
 import './home.css'
+import axios from 'axios'
 
-const Home = () => (
+const Home = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect( () => {
+        const fetchProducts = async () => {
+            const {data} = await axios.get("/api/products")
+            setProducts(data)
+        }
+        fetchProducts()
+    }, [])
+
+    return (
     <Row>
         {
         products.map(product => (
@@ -14,6 +25,6 @@ const Home = () => (
         ))
         }
     </Row>
-)
+)}
 
 export default Home;
