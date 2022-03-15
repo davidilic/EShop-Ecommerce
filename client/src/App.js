@@ -5,6 +5,7 @@ import { Container } from 'react-bootstrap';
 import Home from "./pages/Home/Home";
 import ProductPage from "./pages/Product/ProductPage";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Cart from "../src/pages/Cart/Cart"
 
 function App() {
   return (
@@ -12,8 +13,11 @@ function App() {
         <Header/>
         <Container>
             <Routes>
-                <Route path="/" element={<Home/>} exact />
-                <Route path="/product/:id" element={<ProductPage/>} exact />
+              <Route path="/" element={<Home/>} exact />
+              <Route path="/product/:id" element={<ProductPage/>} exact />
+              <Route path="/cart" element={<Cart/>} >
+                <Route path="/cart/:id" element={<Cart/>} />
+              </Route>
             </Routes>
         </Container>
         <Footer/>
