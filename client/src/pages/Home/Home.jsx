@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import { useParams } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {listProducts} from "../../redux/actions/productActions"
 import ProductCard from "../../components/ProductCard"
@@ -10,12 +11,12 @@ import './home.css'
 const Home = () => {
     const dispatch = useDispatch()
 
-    const productList = useSelector(state => state.productList)
-    const {loading, error, products } = productList
+    const {loading, error, products } = useSelector(state => state.productList)
+    const { keyword } = useParams()
 
     useEffect( () => {
-        dispatch(listProducts())
-    }, [dispatch])
+        dispatch(listProducts(keyword))
+    }, [dispatch, keyword])
 
     return (
         <>
