@@ -10,6 +10,8 @@ import Login from "../src/pages/Login/Login"
 import Register from "../src/pages/Register/Register"
 import Profile from "../src/pages/Profile/Profile"
 import Shipping from "../src/pages/Shipping/Shipping"
+import Payment from "../src/pages/Payment/Payment"
+import PlaceOrder from "../src/pages/PlaceOrder/PlaceOrder"
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
               <Route path="/" element={<Home/>} exact />
               <Route path="/login" element={<Login/>} exact />
               <Route path="/shipping" element={<Shipping/>} exact />
+              <Route path="/payment" element={<Payment/>} exact />
+              <Route path="/placeorder" element={<PlaceOrder/>} exact />
               <Route path="/register" element={<Register/>} exact />
               <Route path="/profile" element={<Profile/>} exact />
               <Route path="/search/:keyword" element={<Home/>} exact />

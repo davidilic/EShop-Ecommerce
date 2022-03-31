@@ -83,9 +83,11 @@ const Cart = () => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkoutHandler}>
-                Proceed to Checkout
-              </Button>
+              <Link to='/shipping'>
+                <Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkoutHandler}>
+                  Proceed to Checkout
+                </Button>
+              </Link>
             </ListGroup.Item>
           </ListGroup>
         </Card>
