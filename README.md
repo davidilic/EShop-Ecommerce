@@ -37,6 +37,4 @@ And more...
 
 ![image](https://user-images.githubusercontent.com/91414168/165637192-a2b89eea-890b-4c16-8913-4ef167d2357c.png)
 
-![image](https://user-images.githubusercontent.com/91414168/165637281-95b8caa8-671b-4cba-b0fb-7b15e7a8b76b.png)
-
 ![image](https://user-images.githubusercontent.com/91414168/165639289-cc264c5b-dabf-486e-be46-3c32f1758d8d.png)
