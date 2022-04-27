@@ -14,15 +14,17 @@ const Login = () => {
     const dispatch = useDispatch()
 
     const {loading, error, userInfo } = useSelector(state => state.userLogin)
-
+    
     const [searchParams] = useSearchParams()
     const redirect = searchParams.get('redirect')
     
     const navigate = useNavigate()
-
+    
     useEffect(() => {
+        
         if(userInfo && redirect){
-            navigate(redirect)
+            navigate("/"+redirect)
+            return;
         }
 
         if(userInfo){

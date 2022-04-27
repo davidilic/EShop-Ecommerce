@@ -12,6 +12,7 @@ import Profile from "../src/pages/Profile/Profile"
 import Shipping from "../src/pages/Shipping/Shipping"
 import Payment from "../src/pages/Payment/Payment"
 import PlaceOrder from "../src/pages/PlaceOrder/PlaceOrder"
+import Order from "../src/pages/Order/Order"
 
 function App() {
   return (
@@ -20,12 +21,15 @@ function App() {
         <Container>
             <Routes>
               <Route path="/" element={<Home/>} exact />
+              <Route path="/order/:id" element={<Order/>} exact />
               <Route path="/login" element={<Login/>} exact />
               <Route path="/shipping" element={<Shipping/>} exact />
               <Route path="/payment" element={<Payment/>} exact />
               <Route path="/placeorder" element={<PlaceOrder/>} exact />
               <Route path="/register" element={<Register/>} exact />
               <Route path="/profile" element={<Profile/>} exact />
+              <Route path="/page/:pageNumber" element={<Home/>} exact />
+              <Route path="/search/:keyword/page/:pageNumber" element={<Home/>} exact />
               <Route path="/search/:keyword" element={<Home/>} exact />
               <Route path="/product/:id" element={<ProductPage/>} exact />
               <Route path="/cart" element={<Cart/>} >

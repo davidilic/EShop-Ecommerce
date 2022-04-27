@@ -16,7 +16,7 @@ const Cart = () => {
 
   const cart = useSelector(state => state.cart)
   const { cartItems } = cart
-
+  
   useEffect(() => {
     if(id){
       dispatch(addToCart(id, qty))
@@ -30,7 +30,7 @@ const Cart = () => {
   const checkoutHandler = () => {
     navigate('/login?redirect=shipping')
   }
-
+  
   return (
     <Row>
       <Col md={8}>
@@ -83,11 +83,9 @@ const Cart = () => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <Link to='/shipping'>
                 <Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkoutHandler}>
                   Proceed to Checkout
                 </Button>
-              </Link>
             </ListGroup.Item>
           </ListGroup>
         </Card>

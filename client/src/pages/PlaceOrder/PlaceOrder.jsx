@@ -12,15 +12,16 @@ const PlaceOrder = () => {
 
     const cart = useSelector(state => state.cart)
 
-    cart.itemsPrice = cart.cartItems.reduce((acc, item) => acc + (item.price * item.qty), 0)
+    cart.itemsPrice = Number(cart.cartItems.reduce((acc, item) => acc + (item.price * item.qty), 0)).toFixed(2)
     cart.shippingPrice = cart.itemsPrice > 100 ? 0 : 10
-    cart.totalPrice = cart.itemsPrice + cart.shippingPrice
+    cart.totalPrice = Number(Number(cart.itemsPrice) + cart.shippingPrice).toFixed(2)
 
     const {order, success, error} = useSelector(state => state.orderCreate)
     const navigate = useNavigate()
 
     useEffect(() => {
         if(success) {
+            dispatch({type: 'ORDER_CREATE_RESET'})
             navigate('/order/'+order._id)
         }
     },[navigate, order, success])
@@ -34,6 +35,7 @@ const PlaceOrder = () => {
             shippingPrice: cart.shippingPrice,
             totalPrice: cart.totalPrice
         }))
+        dispatch({type: 'CART_RESET'})
     }
 
   return (
