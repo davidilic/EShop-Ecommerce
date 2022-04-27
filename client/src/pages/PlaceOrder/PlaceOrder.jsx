@@ -4,7 +4,7 @@ import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../../components/Message' 
 import CheckoutSteps from '../../components/CheckoutSteps' 
-import { createOrder } from '../../redux/actions/orderActions.js'
+import { createOrder, getOrderDetails, listMyOrders } from '../../redux/actions/orderActions.js'
 
 const PlaceOrder = () => {
 
@@ -22,11 +22,15 @@ const PlaceOrder = () => {
     useEffect(() => {
         if(success) {
             dispatch({type: 'ORDER_CREATE_RESET'})
+            dispatch({type: 'CART_RESET'})
+            dispatch(getOrderDetails(order._id))
+            dispatch(listMyOrders())
             navigate('/order/'+order._id)
         }
-    },[navigate, order, success])
+    },[navigate, order, success, dispatch])
 
     const placeOrderHandler = () => {
+        dispatch({type: 'ORDER_CREATE_RESET'})
         dispatch(createOrder({
             orderItems: cart.cartItems,
             shippingAddress: cart.shippingAddress,
@@ -35,7 +39,6 @@ const PlaceOrder = () => {
             shippingPrice: cart.shippingPrice,
             totalPrice: cart.totalPrice
         }))
-        dispatch({type: 'CART_RESET'})
     }
 
   return (

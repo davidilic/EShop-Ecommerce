@@ -6,6 +6,7 @@ import Message from '../../components/Message'
 import Loader from '../../components/Loader'
 import { getUserDetails, updateUserProfile } from '../../redux/actions/userActions.js' 
 import { listMyOrders } from '../../redux/actions/orderActions.js'
+import { ORDER_DETAILS_RESET, ORDER_PAY_RESET } from '../../redux/constants/orderConstants'
 
 const Profile = () => {
     const [name, setName] = useState('')
@@ -46,7 +47,11 @@ const Profile = () => {
             dispatch(updateUserProfile({id: user._id, name, email, password}))
         }
 
-        
+    }
+
+    const getOrderDetailsHandler = (order) => {
+        dispatch({type: ORDER_DETAILS_RESET})
+        navigate(`/order/${order._id}`)
     }
 
   return (
@@ -116,7 +121,7 @@ const Profile = () => {
                             <td>{order.isPaid ? order.paidAt.substring(0, 10) : <i className='fas fa-times' style={{color: 'red'}} />}</td>
                             <td>{order.isDelivered ? order.deliveredAt.substring(0, 10) : <i className='fas fa-times' style={{color: 'red'}} />}</td>                        
                             <td>
-                                <Button className='btn-sm' variant='light' onClick={() => navigate(`/order/${order._id}`)}>Details</Button>
+                                <Button className='btn-sm' variant='light' onClick={() => getOrderDetailsHandler(order)}>Details</Button>
                             </td>
                         </tr>
                     ))}

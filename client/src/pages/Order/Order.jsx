@@ -7,7 +7,7 @@ import Loader from '../../components/Loader'
 import { getOrderDetails, payOrder } from '../../redux/actions/orderActions.js'
 import axios from 'axios';
 import {PayPalButton} from 'react-paypal-button-v2'
-import { ORDER_PAY_RESET } from '../../redux/constants/orderConstants'
+import { ORDER_DETAILS_RESET, ORDER_PAY_RESET } from '../../redux/constants/orderConstants'
 
 const Order = () => {
 

@@ -8,6 +8,7 @@ import { listProductDetails, createProductReview } from '../../redux/actions/pro
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import { useNavigate } from "react-router-dom";
+import { PRODUCT_CREATE_REVIEW_RESET } from '../../redux/constants/productConstants';
 
 const ProductPage = (history) => {
     const selectedId = useParams().id
@@ -29,7 +30,7 @@ const ProductPage = (history) => {
             alert('Review submitted successfully')
             setRating(0)
             setComment('')
-            dispatch({type: 'PRODUCT_REVIEW_CREATE_RESET'})
+            dispatch({type: PRODUCT_CREATE_REVIEW_RESET})
         }
 
         dispatch(listProductDetails(selectedId))
