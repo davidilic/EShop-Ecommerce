@@ -4,7 +4,7 @@ import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
-import { register } from '../../redux/actions/userActions.js' 
+import { logout, register } from '../../redux/actions/userActions.js' 
 import FormContainer from '../../components/FormContainer' 
 
 const Register = () => {
@@ -24,15 +24,11 @@ const Register = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if(userInfo && redirect){
-            navigate(redirect)
+        if(userInfo) {
+            navigate('/login')
+            dispatch(logout())
         }
-
-        if(userInfo){
-            navigate('/')
-        }
-
-    }, [navigate, userInfo, redirect])
+    }, [navigate, userInfo, redirect, dispatch])
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -43,7 +39,6 @@ const Register = () => {
             dispatch(register(name, email, password))
         }
 
-        
     }
 
   return (
@@ -89,7 +84,7 @@ const Register = () => {
             <Col>
                 Have an account? &nbsp;
                 <Link to={redirect ? '/register?redirect='+redirect : '/register'}>
-                    Submit
+                    Sign In
                 </Link>
             </Col>
         </Row>
