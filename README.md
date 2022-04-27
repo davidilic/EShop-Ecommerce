@@ -1,5 +1,5 @@
 # EShop
-EShop - A single page ecommerce app created with React.
+EShop - A single page ecommerce app created with the MERN stack.
 
 Site is deployed on [here](https://pair-up--project.herokuapp.com/).
 
@@ -20,7 +20,9 @@ Cart functionality
 
 Checkout process: Sign In, Shipping Details, Payment Details, Order Details.
 
-Implemented paypal mock payment functionality.
+Implemented PayPal mock payment functionality.
+
+And more...
 
 # Demo Images
 
