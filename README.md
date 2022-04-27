@@ -1,6 +1,8 @@
 # EShop
 EShop - A single page ecommerce app created with React.
+
 Site is deployed on [here](https://pair-up--project.herokuapp.com/).
+
 Paypal mock payment functionality doesn't work in production.
 
 # Functionality
